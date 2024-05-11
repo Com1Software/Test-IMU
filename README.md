@@ -1,5 +1,7 @@
 Test WT901BLECL Magentometer
 
+https://m.media-amazon.com/images/I/81B6widuqDL.pdf
+
 WT61 Communication protocol
 https://drive.google.com/file/d/1oFb-pHY_UMAsN4hCDXywLDr8-5HdtN-w/view
 
