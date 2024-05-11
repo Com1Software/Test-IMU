@@ -1,5 +1,7 @@
 Test WT901BLECL Magentometer
 
+https://wiki.ros.org/witmotion_ros
+
 https://m.media-amazon.com/images/I/81B6widuqDL.pdf
 
 WT61 Communication protocol
