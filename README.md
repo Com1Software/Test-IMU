@@ -1,6 +1,8 @@
 Test WT901BLECL Magentometer
 
-https://github.com/WITMOTION
+[WitMotion Home Page](https://witmotion-sensor.com/)
+
+[WitMotion Github](https://github.com/WITMOTION)
 
 https://stackoverflow.com/questions/55406762/obtaining-correct-imu-values
 
