@@ -6,11 +6,11 @@ Test WT901BLECL Magentometer
 
 [Python IMU Values](https://stackoverflow.com/questions/55406762/obtaining-correct-imu-values)
 
-[WT61 Data Sheet[(https://m.media-amazon.com/images/I/81B6widuqDL.pdf)
+[WT61 Data Sheet](https://m.media-amazon.com/images/I/81B6widuqDL.pdf)
 
 [WT61 Communication protocol](https://drive.google.com/file/d/1oFb-pHY_UMAsN4hCDXywLDr8-5HdtN-w/view)
 
-[aaa](https://drive.google.com/drive/folders/1IE55H98HD0SPtKN65sSdT2IOBx1EhrP-)
+[WT61 Data Sheet](https://drive.google.com/drive/folders/1IE55H98HD0SPtKN65sSdT2IOBx1EhrP-)
 
 [aaa](https://witmotion-sensor.com/products/witmotion-wt61c-high-accuracy-accelerometer-sensor-6-axis-acceleration-16g-gyro-angle-xy-0-05-accuracy-with-kalman-filtering-mpu6050-ahrs-imu-unaffected-by-magnetic-field-for-arduino)
 
