@@ -4,9 +4,12 @@ import (
 	"encoding/hex"
 	"fmt"
 	"log"
+	"strconv"
 
 	"go.bug.st/serial"
 )
+
+var xpos float64
 
 func main() {
 	fmt.Println("Test Multiport Serial Controller")
@@ -27,8 +30,9 @@ func main() {
 		DataBits: 8,
 		StopBits: serial.OneStopBit,
 	}
+	mctl := 0
 	po := false
-
+	pos := 0
 	for x := 0; x < len(ports); x++ {
 		port, err := serial.Open(ports[x], mode)
 		if err != nil {
@@ -51,10 +55,41 @@ func main() {
 				src := []byte(string(buff))
 				encodedStr := hex.EncodeToString(src)
 				if encodedStr == "55" {
-					fmt.Println("")
+					mctl = 1
+					pos = 0
 				}
-				fmt.Printf(" %s ", encodedStr)
+				if encodedStr == "53" && mctl == 1 {
+					fmt.Println("")
+					mctl = 2
+				}
 
+				if mctl == 2 {
+					pos++
+
+					decimal, err := strconv.ParseInt(encodedStr, 16, 32)
+					if err != nil {
+						fmt.Println(err)
+					}
+					// fmt.Printf(" %s %d %d", encodedStr, decimal, pos)
+
+					switch {
+					case pos == 2:
+						//					xpos = decimal / 32768.0 * 180.0
+						//					fmt.Printf(" x= %d ", xpos)
+						fmt.Printf(" xH= %d", decimal)
+					case pos == 3:
+						fmt.Printf(" xL= %d", decimal)
+					case pos == 4:
+						fmt.Printf(" yH= %d", decimal)
+					case pos == 5:
+						fmt.Printf(" yL= %d", decimal)
+					case pos == 6:
+						fmt.Printf(" zH= %d", decimal)
+					case pos == 7:
+						fmt.Printf(" zL= %d", decimal)
+
+					}
+				}
 			}
 		}
 	}
