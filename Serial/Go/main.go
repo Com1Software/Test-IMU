@@ -22,12 +22,13 @@ func main() {
 		fmt.Printf("Found port: %v\n", port)
 	}
 	mode := &serial.Mode{
-		BaudRate: 9600,
+		BaudRate: 115200,
 		Parity:   serial.NoParity,
 		DataBits: 8,
 		StopBits: serial.OneStopBit,
 	}
 	po := false
+
 	for x := 0; x < len(ports); x++ {
 		port, err := serial.Open(ports[x], mode)
 		if err != nil {
@@ -49,10 +50,11 @@ func main() {
 				}
 				src := []byte(string(buff))
 				encodedStr := hex.EncodeToString(src)
-				fmt.Printf("%s ", encodedStr)
-				if encodedStr == "00" {
+				if encodedStr == "55" {
 					fmt.Println("")
 				}
+				fmt.Printf(" %s ", encodedStr)
+
 			}
 		}
 	}
