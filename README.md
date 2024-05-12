@@ -4,16 +4,15 @@ Test WT901BLECL Magentometer
 
 [WitMotion Github](https://github.com/WITMOTION)
 
-https://stackoverflow.com/questions/55406762/obtaining-correct-imu-values
+[Python IMU Values](https://stackoverflow.com/questions/55406762/obtaining-correct-imu-values)
 
-https://m.media-amazon.com/images/I/81B6widuqDL.pdf
+[WT61 Data Sheet[(https://m.media-amazon.com/images/I/81B6widuqDL.pdf)
 
-WT61 Communication protocol
-https://drive.google.com/file/d/1oFb-pHY_UMAsN4hCDXywLDr8-5HdtN-w/view
+[WT61 Communication protocol](https://drive.google.com/file/d/1oFb-pHY_UMAsN4hCDXywLDr8-5HdtN-w/view)
 
-https://drive.google.com/drive/folders/1IE55H98HD0SPtKN65sSdT2IOBx1EhrP-
+[](https://drive.google.com/drive/folders/1IE55H98HD0SPtKN65sSdT2IOBx1EhrP-)
 
-https://witmotion-sensor.com/products/witmotion-wt61c-high-accuracy-accelerometer-sensor-6-axis-acceleration-16g-gyro-angle-xy-0-05-accuracy-with-kalman-filtering-mpu6050-ahrs-imu-unaffected-by-magnetic-field-for-arduino
+[](https://witmotion-sensor.com/products/witmotion-wt61c-high-accuracy-accelerometer-sensor-6-axis-acceleration-16g-gyro-angle-xy-0-05-accuracy-with-kalman-filtering-mpu6050-ahrs-imu-unaffected-by-magnetic-field-for-arduino)
 
 [Reverse Engineering WitMotion BWT901CL Accelerometer](https://github.com/jurassic-marc/witmotion-bwt901cl-accelerometer-reverse-engineer)
 
