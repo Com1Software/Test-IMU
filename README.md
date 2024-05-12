@@ -1,5 +1,3 @@
-Test WT901BLECL Magentometer
-
 [WitMotion Home Page](https://witmotion-sensor.com/)
 
 [WitMotion Github](https://github.com/WITMOTION)
