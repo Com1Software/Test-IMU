@@ -2,6 +2,8 @@
 
 [WitMotion Github](https://github.com/WITMOTION)
 
+[JY901 CPP Example](https://github.com/WITMOTION/WitStandardProtocol_JY901/tree/main/C%2B%2B/NORMAL_WIN_CPP)
+
 [Python IMU Values](https://stackoverflow.com/questions/55406762/obtaining-correct-imu-values)
 
 [WT61 Data Sheet](https://m.media-amazon.com/images/I/81B6widuqDL.pdf)
