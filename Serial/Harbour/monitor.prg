@@ -10,7 +10,6 @@ FUNCTION Main( )
    local line:=""
    LOCAL nPort := 0
    local pa:=DetectSerialPorts()
-   local lc:=0
    local ik:=0
 
    ?os()
@@ -21,7 +20,7 @@ FUNCTION Main( )
             "error: " + hb_ntos( hb_comGetError( nPort ) )
       ELSE
          ? "port:", hb_comGetDevice( nPort ), "opened"
-         IF ! hb_comInit( nPort, 9600, "N", 8, 1 )
+         IF ! hb_comInit( nPort, 115200, "N", 8, 1 )
             ? "Cannot initialize port to: 9600:N:8:1", ;
                "error: " + hb_ntos( hb_comGetError( nPort ) )
          ELSE
@@ -34,14 +33,13 @@ FUNCTION Main( )
                cString := Space( 1 )
                nTimeOut := 500 // 500 milliseconds = 0.5 sec.
                nResult := hb_comRecv( nPort, @cString, hb_BLen( cString ),nTimeOut )
-      
-               IF nResult == 1
-                  if asc(cstring)=13
-                     lc++
-                     ?line,lc
-                     line=""
+                  IF nResult == 1
+               
+                  if asc(cstring)=85
+                      ?line
+                      line=""
                   else
-                     line=line+cstring   
+                     line=line+str(asc(cstring))+" " 
                   endif
 
                ENDIF
