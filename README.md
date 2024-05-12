@@ -1,5 +1,7 @@
 Test WT901BLECL Magentometer
 
+https://github.com/WITMOTION
+
 https://stackoverflow.com/questions/55406762/obtaining-correct-imu-values
 
 https://m.media-amazon.com/images/I/81B6widuqDL.pdf
