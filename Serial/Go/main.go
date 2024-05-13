@@ -70,12 +70,13 @@ func main() {
 					if err != nil {
 						fmt.Println(err)
 					}
+
 					// fmt.Printf(" %s %d %d", encodedStr, decimal, pos)
 
 					switch {
 					case pos == 2:
-						//					xpos = decimal / 32768.0 * 180.0
-						//					fmt.Printf(" x= %d ", xpos)
+						xpos = float64(decimal) / 32768.0 * 180.0
+						fmt.Printf(" x= %f ", xpos)
 						fmt.Printf(" xH= %d", decimal)
 					case pos == 3:
 						fmt.Printf(" xL= %d", decimal)
