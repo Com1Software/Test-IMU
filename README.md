@@ -1,3 +1,5 @@
+[How to combine two hex value(High Value & Low Value) ](https://stackoverflow.com/questions/74937416/how-to-combine-two-hex-valuehigh-value-low-value-at-two-different-array-posi)
+
 [WitMotion Home Page](https://witmotion-sensor.com/)
 
 [WitMotion Github](https://github.com/WITMOTION)
