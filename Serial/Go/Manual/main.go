@@ -9,7 +9,8 @@ import (
 	"go.bug.st/serial"
 )
 
-var xpos float64
+var xposl float64
+var xposh float64
 
 func main() {
 	fmt.Println("Test Multiport Serial Controller")
@@ -71,15 +72,17 @@ func main() {
 						fmt.Println(err)
 					}
 
-					// fmt.Printf(" %s %d %d", encodedStr, decimal, pos)
+					// fmt.Printf(" %s %d %d\n", encodedStr, decimal, pos)
 
 					switch {
 					case pos == 2:
-						xpos = float64(decimal) / 32768.0 * 180.0
-						fmt.Printf(" x= %f ", xpos)
-						fmt.Printf(" xH= %d", decimal)
-					case pos == 3:
+						xposl = float64(decimal) / 32768.0 * 180.0
+						fmt.Printf(" xL= %f ", xposl)
 						fmt.Printf(" xL= %d", decimal)
+					case pos == 3:
+						xposh = float64(decimal) / 32768.0 * 180.0
+						fmt.Printf(" xH= %f ", xposh)
+						fmt.Printf(" xH= %d", decimal)
 					case pos == 4:
 						fmt.Printf(" yH= %d", decimal)
 					case pos == 5:
