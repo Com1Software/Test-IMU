@@ -9,10 +9,13 @@ import (
 	"go.bug.st/serial"
 )
 
-var xposl float64
-var xposh float64
+var x float64
+var y float64
+var z float64
 
 func main() {
+	xposl := ""
+	xposh := ""
 	fmt.Println("Test Multiport Serial Controller")
 
 	ports, err := serial.GetPortsList()
@@ -54,6 +57,7 @@ func main() {
 					break
 				}
 				src := []byte(string(buff))
+
 				encodedStr := hex.EncodeToString(src)
 				if encodedStr == "55" {
 					mctl = 1
@@ -76,13 +80,19 @@ func main() {
 
 					switch {
 					case pos == 2:
-						xposl = float64(decimal) / 32768.0 * 180.0
-						fmt.Printf(" xL= %f ", xposl)
-						fmt.Printf(" xL= %d", decimal)
+						xposl = encodedStr
 					case pos == 3:
-						xposh = float64(decimal) / 32768.0 * 180.0
-						fmt.Printf(" xH= %f ", xposh)
-						fmt.Printf(" xH= %d", decimal)
+						xposh = encodedStr
+						combined := convertAndCombine(xposl, xposh)
+						xd, errx := strconv.ParseInt(combined, 16, 32)
+						if errx != nil {
+							fmt.Println(errx)
+						}
+						fmt.Println(xd)
+						xx := 0
+						xx, _ = strconv.Atoi(combined)
+						x = xx / 32768.0 * 180.0
+						fmt.Printf("X=%d  xx=%d\n", x, xx)
 					case pos == 4:
 						fmt.Printf(" yH= %d", decimal)
 					case pos == 5:
@@ -98,4 +108,11 @@ func main() {
 		}
 	}
 
+}
+
+func convertAndCombine(s1, s2 string) string {
+	hex1 := hex.EncodeToString([]byte(s1))
+	hex2 := hex.EncodeToString([]byte(s2))
+
+	return hex1 + hex2
 }
