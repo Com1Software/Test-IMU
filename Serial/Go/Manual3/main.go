@@ -83,16 +83,11 @@ func main() {
 						xposl = encodedStr
 					case pos == 3:
 						xposh = encodedStr
-						combined := convertAndCombine(xposl, xposh)
-						xd, errx := strconv.ParseInt(combined, 16, 32)
-						if errx != nil {
-							fmt.Println(errx)
-						}
-						fmt.Println(xd)
-						xx := 0
-						xx, _ = strconv.Atoi(combined)
-						x = xx / 32768.0 * 180.0
-						fmt.Printf("X=%d  xx=%d\n", x, xx)
+						byte1, _ := strconv.ParseUint(xposl, 16, 8)
+						byte2, _ := strconv.ParseUint(xposh, 16, 8)
+						combined := (uint16(byte1) << 8) | uint16(byte2)
+						fmt.Printf("Combined hex: 0x%X\n", combined)
+
 					case pos == 4:
 						fmt.Printf(" yH= %d", decimal)
 					case pos == 5:
