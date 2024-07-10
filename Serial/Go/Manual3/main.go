@@ -16,6 +16,10 @@ var z float64
 func main() {
 	xposl := ""
 	xposh := ""
+	yposl := ""
+	yposh := ""
+	zposl := ""
+	zposh := ""
 	fmt.Println("Test Multiport Serial Controller")
 
 	ports, err := serial.GetPortsList()
@@ -71,7 +75,6 @@ func main() {
 				if mctl == 2 {
 					pos++
 
-					decimal, err := strconv.ParseInt(encodedStr, 16, 32)
 					if err != nil {
 						fmt.Println(err)
 					}
@@ -85,17 +88,32 @@ func main() {
 						xposh = encodedStr
 						byte1, _ := strconv.ParseUint(xposl, 16, 8)
 						byte2, _ := strconv.ParseUint(xposh, 16, 8)
-						combined := (uint16(byte1) << 8) | uint16(byte2)
-						fmt.Printf("Combined hex: 0x%X\n", combined)
+						combinedx := (uint16(byte1) << 8) | uint16(byte2)/32768.0*180.0
+						fmt.Printf("Combined hex fo X: 0x%X\n", combinedx)
+						// var s string = strconv.FormatUint(uint64(combinedx), 10)
+						//fmt.Printf("s=%s\n", s)
 
 					case pos == 4:
-						fmt.Printf(" yH= %d", decimal)
+						yposl = encodedStr
 					case pos == 5:
-						fmt.Printf(" yL= %d", decimal)
+						yposh = encodedStr
+						byte1, _ := strconv.ParseUint(yposl, 16, 8)
+						byte2, _ := strconv.ParseUint(yposh, 16, 8)
+						combinedy := (uint16(byte1) << 8) | uint16(byte2)/32768.0*180.0
+						fmt.Printf("Combined hex for Y: 0x%X\n", combinedy)
+
 					case pos == 6:
-						fmt.Printf(" zH= %d", decimal)
+						zposl = encodedStr
 					case pos == 7:
-						fmt.Printf(" zL= %d", decimal)
+						yposh = encodedStr
+						byte1, _ := strconv.ParseUint(zposl, 16, 8)
+						byte2, _ := strconv.ParseUint(zposh, 16, 8)
+						combinedz := (uint16(byte1) << 8) | uint16(byte2)/32768.0*180.0
+						fmt.Printf("Combined hex for Z: 0x%X\n", combinedz)
+
+						//Roll = float(np.short((RollH<<8)|RollL)/32768.0*180.0)
+						//Pitch = float(np.short((PitchH<<8)|PitchL)/32768.0*180.0)
+						//Yaw = float(np.short((YawH<<8)|YawL)/32768.0*180.0)
 
 					}
 				}
