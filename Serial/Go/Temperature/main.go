@@ -75,24 +75,27 @@ func main() {
 						fmt.Println(err)
 					}
 
-					// fmt.Printf(" %s %d %d\n", encodedStr, decimal, pos)
+					fmt.Printf(" %d %s\n", pos, encodedStr)
 
 					switch {
-					case pos == 8:
-						xposl = encodedStr
+
 					case pos == 9:
+						xposl = encodedStr
+					case pos == 10:
 						xposh = encodedStr
 						byte1, _ := strconv.ParseUint(xposl, 16, 8)
 						byte2, _ := strconv.ParseUint(xposh, 16, 8)
 						combinedx := (uint16(byte1) << 8) | uint16(byte2)
-						fmt.Printf("Combined hex fo X: 0x%X\n", combinedx)
+						fmt.Printf("Combined hex  : 0x%X  Byte1 %d Byte2 %d lowbyte %s highbyte %s\n", combinedx, byte1, byte2, xposl, xposh)
 						var s string = strconv.FormatUint(uint64(combinedx), 10)
 						fmt.Printf("s=%s\n", s)
 						f, err := strconv.ParseFloat(s, 32)
 						if err == nil {
-							fmt.Println(f) // 3.1415927410125732
+							fmt.Println(f)
 						}
-						fmt.Printf("s=%f\n", f/32768*96.38+36.53)
+						fmt.Printf("s=%f    %f\n", f/100, f/32768*96.38+36.53)
+
+						//	fmt.Printf("s=%f\n", f/32768*96.38+36.53)
 
 					}
 				}
