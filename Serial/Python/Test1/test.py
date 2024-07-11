@@ -6,6 +6,8 @@ import struct
 
 AngInit = b"\xff\xaa\x52"
 AccCalib = b"\xff\xaa\x67"
+declination = -0.00669
+pi          = 3.14159265359
 feature = b"UQ(.{6,6}).{3,3}UR(.{6,6}).{3,3}US(.{6,6}).{3,3}"
 fmt_B, fmt_h = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", "<hhh"
 
@@ -47,5 +49,15 @@ while True:
 
             roll, pitch, yaw = ef_l[0], ef_l[1], ef_l[2]
             print("--- angle ---")
+            heading = math.atan2(pitch, roll) + declination
+            if(heading > 2*pi):
+                heading = heading - 2*pi
+            if(heading < 0):
+                heading = heading + 2*pi
+                
             print(roll,pitch,yaw)
-            
+            heading_angle = int(heading * 180/pi)
+            print ("Heading Angle = %d°" %heading_angle)         
+           
+
+  
