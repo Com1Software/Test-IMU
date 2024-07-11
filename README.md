@@ -1,5 +1,7 @@
 
-[YahboomTechnology](https://github.com/YahboomTechnology/10-axis_IMU_Module)
+[Yahboom Protocol](https://github.com/YahboomTechnology/10-axis_IMU_Module/blob/main/5.Communication%20protocol/10-axis%20IMU%20module%20communication%20protocol.pdf)
+[
+YahboomTechnology](https://github.com/YahboomTechnology/10-axis_IMU_Module)
 
 [6Harmony9/Witmotion-WT901CTTL-Python](https://github.com/6Harmony9/Witmotion-WT901CTTL-Python/blob/main/WT901.py)
 
