@@ -8,7 +8,7 @@
 
 [YahboomTechnology](https://github.com/YahboomTechnology/10-axis_IMU_Module)
 
-[WT61C-Python3/blob/main/wt61c]{https://github.com/yang-neu/WT61C-Python3/blob/main/wt61c.py)
+[WT61C-Python3/blob/main/wt61c](https://github.com/yang-neu/WT61C-Python3/blob/main/wt61c.py)
 
 
 [6Harmony9/Witmotion-WT901CTTL-Python](https://github.com/6Harmony9/Witmotion-WT901CTTL-Python/blob/main/WT901.py)
