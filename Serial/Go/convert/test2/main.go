@@ -1,19 +1,22 @@
 package main
 
 import (
-	"fmt"
-	"math"
-	"github.com/tarm/serial"
-	"regexp"
+	"bytes"
 	"encoding/binary"
+	"fmt"
+	"log"
+	"math"
+	"regexp"
+
+	"github.com/tarm/serial"
 )
 
 const (
-	AngInit = "\xff\xaa\x52"
-	AccCalib = "\xff\xaa\x67"
+	AngInit     = "\xff\xaa\x52"
+	AccCalib    = "\xff\xaa\x67"
 	declination = -0.00669
-	pi = 3.14159265359
-	feature = "UQ(.{6,6}).{3,3}UR(.{6,6}).{3,3}US(.{6,6}).{3,3}"
+	pi          = 3.14159265359
+	feature     = "UQ(.{6,6}).{3,3}UR(.{6,6}).{3,3}US(.{6,6}).{3,3}"
 )
 
 var (
@@ -58,9 +61,9 @@ func main() {
 
 				var af_l, wf_l, ef_l [3]float64
 				for i := 0; i < 3; i++ {
-					af_l[i] = float64(af[i])/32768.0*16*9.8
-					wf_l[i] = float64(wf[i])/32768.0*2000
-					ef_l[i] = float64(ef[i])/32768.0*180
+					af_l[i] = float64(af[i]) / 32768.0 * 16 * 9.8
+					wf_l[i] = float64(wf[i]) / 32768.0 * 2000
+					ef_l[i] = float64(ef[i]) / 32768.0 * 180
 				}
 
 				s_x += af_l[0] * 0.01
@@ -69,15 +72,15 @@ func main() {
 
 				heading := math.Atan2(float64(ef_l[1]), float64(ef_l[0])) + declination
 				if heading > 2*pi {
-					heading -= 2*pi
+					heading -= 2 * pi
 				}
 				if heading < 0 {
-					heading += 2*pi
+					heading += 2 * pi
 				}
 
 				fmt.Println("--- angle ---")
 				fmt.Println(ef_l[0], ef_l[1], ef_l[2])
-				heading_angle := int(heading * 180/pi)
+				heading_angle := int(heading * 180 / pi)
 				fmt.Printf("Heading Angle = %d°\n", heading_angle)
 			}
 		}
