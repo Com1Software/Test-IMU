@@ -4,6 +4,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"log"
+	"runtime"
 	"strconv"
 
 	"go.bug.st/serial"
@@ -14,6 +15,7 @@ var heading int64 = 180
 
 func main() {
 	fmt.Println("Test Multiport Serial Controller")
+	fmt.Printf("Operating System : %s\n", runtime.GOOS)
 
 	ports, err := serial.GetPortsList()
 	if err != nil {
@@ -37,7 +39,11 @@ func main() {
 	po := false
 	pos := 0
 	for x := 0; x < len(ports); x++ {
-		port, err := serial.Open(ports[x], mode)
+		openport := ports[x]
+		if runtime.GOOS == "linux" {
+			openport = "/dev/ttyUSB0"
+		}
+		port, err := serial.Open(openport, mode)
 		if err != nil {
 			fmt.Println(err)
 			po = false
